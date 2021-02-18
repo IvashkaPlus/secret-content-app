@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('encrypt-content', 'ContentController@encrypt_content');
+Route::post('decrypt-content', 'ContentController@decrypt_content');
+Route::delete('delete-content', 'ContentController@delete_content');
