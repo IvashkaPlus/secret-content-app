@@ -9,7 +9,12 @@ use Illuminate\Support\Facades\Hash;
 class ContentController extends Controller
 {
     public function index(string $link){
-        return view('content');
+        $content = Content::where('link', $link)->first();
+        if($content) {
+            return view('content', ['link' => $link]);
+        } else {
+            return redirect('/');
+        }
     }
 
     public function encrypt_content(Request $request){
@@ -30,8 +35,7 @@ class ContentController extends Controller
 
     public function decrypt_content(Request $request){
         $content = Content::where('link', $request->input('link'))->first();
-
-        if(Hash::check($request['password'], $content->password)){
+        if(Hash::check($request->input('password'), $content->password)){
             $decrypted_data = decrypt($content->content);
             return response()->json($decrypted_data, 202);
         } else {
@@ -42,12 +46,8 @@ class ContentController extends Controller
     public function delete_content(Request $request){
         $content = Content::where('link', $request->input('link'))->first();
         if($content){
-            if(Hash::check($request['password'], $content->password)){
-                $content->delete();
-                return response()->json('Content deleted. You can close this page', 202);
-            } else {
-                return response()->json('Incorrect password', 403);
-            }
+            $content->delete();
+            return response()->json('Content deleted. You can close this page', 202);
         } else {
             return response()->json('Was deleted', 410);
         }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import ContentForm from "./ContentForm";
 
-export default class Main extends Component {
+export default class ContentEncryptor extends Component {
 
     constructor() {
         super();
@@ -47,5 +47,5 @@ export default class Main extends Component {
 }
 
 if (document.getElementById('root')) {
-    ReactDOM.render(<Main />, document.getElementById('root'));
+    ReactDOM.render(<ContentEncryptor />, document.getElementById('root'));
 }

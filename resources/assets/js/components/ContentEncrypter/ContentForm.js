@@ -19,7 +19,6 @@ class ContentForm extends Component {
         var state = Object.assign({}, this.state.newContent);
         state[key] = e.target.value;
         this.setState({newContent: state });
-        console.log(this.state.newContent);
     }
 
     handleSubmit(e) {

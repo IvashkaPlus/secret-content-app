@@ -10259,7 +10259,8 @@ __webpack_require__(91);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-__webpack_require__(232);
+__webpack_require__(235);
+__webpack_require__(234);
 
 /***/ }),
 /* 91 */
@@ -54773,97 +54774,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /* 229 */,
 /* 230 */,
 /* 231 */,
-/* 232 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(134);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ContentForm__ = __webpack_require__(233);
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-
-
-
-
-var Main = function (_Component) {
-    _inherits(Main, _Component);
-
-    function Main() {
-        _classCallCheck(this, Main);
-
-        var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this));
-
-        _this.state = {
-            contentLink: null
-        };
-
-        _this.handleCreateContent = _this.handleCreateContent.bind(_this);
-        return _this;
-    }
-
-    _createClass(Main, [{
-        key: 'handleCreateContent',
-        value: function handleCreateContent(content) {
-            var _this2 = this;
-
-            fetch('api/encrypt-content', {
-                method: 'post',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(content)
-            }).then(function (response) {
-                return response.json();
-            }).then(function (data) {
-                _this2.setState({ contentLink: data });
-            });
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var link = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'a',
-                { href: this.state.contentLink },
-                ' ',
-                this.state.contentLink,
-                ' '
-            );
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'container' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__ContentForm__["a" /* default */], { onCreate: this.handleCreateContent }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'p',
-                    null,
-                    '\u0412\u0430\u0448\u0430 \u0441\u0441\u044B\u043B\u043A\u0430:',
-                    this.state.contentLink ? link : ' Здесь будет находится ссылка после записи данных'
-                )
-            );
-        }
-    }]);
-
-    return Main;
-}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
-
-/* harmony default export */ __webpack_exports__["default"] = (Main);
-
-
-if (document.getElementById('root')) {
-    __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Main, null), document.getElementById('root'));
-}
-
-/***/ }),
+/* 232 */,
 /* 233 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -54906,7 +54817,6 @@ var ContentForm = function (_Component) {
             var state = Object.assign({}, this.state.newContent);
             state[key] = e.target.value;
             this.setState({ newContent: state });
-            console.log(this.state.newContent);
         }
     }, {
         key: 'handleSubmit',
@@ -54963,6 +54873,398 @@ var ContentForm = function (_Component) {
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["a"] = (ContentForm);
+
+/***/ }),
+/* 234 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ContentBox__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Auth__ = __webpack_require__(237);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+
+var ContentDecryptor = function (_Component) {
+    _inherits(ContentDecryptor, _Component);
+
+    function ContentDecryptor() {
+        _classCallCheck(this, ContentDecryptor);
+
+        var _this = _possibleConstructorReturn(this, (ContentDecryptor.__proto__ || Object.getPrototypeOf(ContentDecryptor)).call(this));
+
+        _this.state = {
+            link: document.getElementById('link').value,
+            validated: 0,
+            contentBox: null
+        };
+
+        _this.handleGetContent = _this.handleGetContent.bind(_this);
+        _this.handleDeleteContent = _this.handleDeleteContent.bind(_this);
+        return _this;
+    }
+
+    _createClass(ContentDecryptor, [{
+        key: 'handleError',
+        value: function handleError(err) {
+            alert(err);
+        }
+    }, {
+        key: 'handleDeleteContent',
+        value: function handleDeleteContent() {
+            var _this2 = this;
+
+            var result = void 0;
+            fetch('api/delete-content', {
+                method: 'delete',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ link: this.state.link })
+            }).then(function (response) {
+                result = response.ok;
+                return response.json();
+            }).then(function (data) {
+                if (result) {
+                    _this2.setState({
+                        contentBox: data,
+                        validated: 2
+                    });
+                    return alert(data);
+                } else {
+                    _this2.handleError(data);
+                }
+            });
+        }
+    }, {
+        key: 'handleGetContent',
+        value: function handleGetContent(auth_data) {
+            var _this3 = this;
+
+            var result = void 0;
+            fetch('api/decrypt-content', {
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(auth_data)
+            }).then(function (response) {
+                result = response.ok;
+                return response.json();
+            }).then(function (data) {
+                if (result) {
+                    _this3.setState({
+                        contentBox: data,
+                        validated: 1
+                    });
+                } else {
+                    _this3.handleError(data);
+                }
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var result = void 0;
+            switch (this.state.validated) {
+                case 0:
+                    result = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Auth__["a" /* default */], { link: this.state.link, onGetting: this.handleGetContent });
+                    break;
+                case 1:
+                    result = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__ContentBox__["a" /* default */], { onDelete: this.handleDeleteContent, content: this.state.contentBox });
+                    break;
+                case 2:
+                    result = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'p',
+                        null,
+                        '\u0418\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F \u0443\u0434\u0430\u043B\u0435\u043D\u0430'
+                    );
+                    break;
+            }
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'container' },
+                result
+            );
+        }
+    }]);
+
+    return ContentDecryptor;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (ContentDecryptor);
+
+
+if (document.getElementById('rootDecryptor')) {
+    __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(ContentDecryptor, null), document.getElementById('rootDecryptor'));
+}
+
+/***/ }),
+/* 235 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(134);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ContentForm__ = __webpack_require__(233);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+
+
+var ContentEncryptor = function (_Component) {
+    _inherits(ContentEncryptor, _Component);
+
+    function ContentEncryptor() {
+        _classCallCheck(this, ContentEncryptor);
+
+        var _this = _possibleConstructorReturn(this, (ContentEncryptor.__proto__ || Object.getPrototypeOf(ContentEncryptor)).call(this));
+
+        _this.state = {
+            contentLink: null
+        };
+
+        _this.handleCreateContent = _this.handleCreateContent.bind(_this);
+        return _this;
+    }
+
+    _createClass(ContentEncryptor, [{
+        key: 'handleCreateContent',
+        value: function handleCreateContent(content) {
+            var _this2 = this;
+
+            fetch('api/encrypt-content', {
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(content)
+            }).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                _this2.setState({ contentLink: data });
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var link = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'a',
+                { href: this.state.contentLink },
+                ' ',
+                this.state.contentLink,
+                ' '
+            );
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'container' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__ContentForm__["a" /* default */], { onCreate: this.handleCreateContent }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'p',
+                    null,
+                    '\u0412\u0430\u0448\u0430 \u0441\u0441\u044B\u043B\u043A\u0430:',
+                    this.state.contentLink ? link : ' Здесь будет находится ссылка после записи данных'
+                )
+            );
+        }
+    }]);
+
+    return ContentEncryptor;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (ContentEncryptor);
+
+
+if (document.getElementById('root')) {
+    __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(ContentEncryptor, null), document.getElementById('root'));
+}
+
+/***/ }),
+/* 236 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+var ContentBox = function (_Component) {
+    _inherits(ContentBox, _Component);
+
+    function ContentBox(props) {
+        _classCallCheck(this, ContentBox);
+
+        var _this = _possibleConstructorReturn(this, (ContentBox.__proto__ || Object.getPrototypeOf(ContentBox)).call(this));
+
+        _this.content = props.content;
+
+        return _this;
+    }
+
+    _createClass(ContentBox, [{
+        key: "handlerDelete",
+        value: function handlerDelete(e) {
+            this.props.onDelete();
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            var _this2 = this;
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                { className: "container" },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "h3",
+                    null,
+                    "\u0414\u043E\u0441\u0442\u0443\u043F \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043D"
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "p",
+                    null,
+                    this.content
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "button",
+                    { className: "btn btn-danger", onClick: function onClick(e) {
+                            return _this2.handlerDelete(e);
+                        } },
+                    "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"
+                )
+            );
+        }
+    }]);
+
+    return ContentBox;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (ContentBox);
+
+/***/ }),
+/* 237 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+var Auth = function (_Component) {
+    _inherits(Auth, _Component);
+
+    function Auth(props) {
+        _classCallCheck(this, Auth);
+
+        var _this = _possibleConstructorReturn(this, (Auth.__proto__ || Object.getPrototypeOf(Auth)).call(this, props));
+
+        _this.state = {
+            link: props.link,
+            password: ''
+        };
+
+        _this.handleSubmit = _this.handleSubmit.bind(_this);
+        _this.handleInput = _this.handleInput.bind(_this);
+        return _this;
+    }
+
+    _createClass(Auth, [{
+        key: 'handleInput',
+        value: function handleInput(e) {
+            this.setState({ password: e.target.value });
+            console.log(this.state);
+        }
+    }, {
+        key: 'handleSubmit',
+        value: function handleSubmit(e) {
+            e.preventDefault();
+            this.props.onGetting(this.state);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'p',
+                    null,
+                    '\u0414\u043B\u044F \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u044F \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u043A \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u043F\u0430\u0440\u043E\u043B\u044C'
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'form',
+                    { onSubmit: this.handleSubmit },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'label',
+                            { style: { width: "100%" } },
+                            ' \u041F\u0430\u0440\u043E\u043B\u044C:',
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', {
+                                type: 'password',
+                                onChange: function onChange(e) {
+                                    return _this2.handleInput(e);
+                                },
+                                className: 'form-control'
+                            })
+                        )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'submit', value: '\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C' })
+                )
+            );
+        }
+    }]);
+
+    return Auth;
+}(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
+
+/* harmony default export */ __webpack_exports__["a"] = (Auth);
 
 /***/ })
 /******/ ]);

@@ -11,7 +11,7 @@
     <body>
         <div class="container-fluid text-center">
             <h1>Secret content app</h1>
-            <p>Зашифруйте информацию при помощи пароля</p>
+            <h2>Зашифруйте информацию при помощи пароля</h2>
         </div>
         <div id="root"></div>
         <script src="{{mix('js/app.js')}}" ></script>

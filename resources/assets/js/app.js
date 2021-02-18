@@ -13,4 +13,5 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/ContentEncrypter/Main');
+require('./components/ContentEncrypter/ContentEncryptor');
+require('./components/ContentDecryptor/ContentDecryptor');
