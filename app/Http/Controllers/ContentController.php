@@ -14,7 +14,7 @@ class ContentController extends Controller
 
     public function encrypt_content(Request $request){
         $data = $request->all();
-
+//        dd($data);
         $data['password'] = Hash::make($data['password']);
         $data['content'] = encrypt($data['content']);
 
@@ -23,13 +23,9 @@ class ContentController extends Controller
             $content = Content::where('link', $request->input('link'))->first();
         } while ((!is_null($content)));
 
-        if($content) {
-            return response()->json('', 201);
-        } else {
-            $data['link'] = $link;
-            Content::create($data);
-            return response()->json($data['link'], 201);
-        }
+        $data['link'] = $link;
+        Content::create($data);
+        return response()->json("http://secret-content-app/" . $link, 201);
     }
 
     public function decrypt_content(Request $request){
@@ -37,7 +33,7 @@ class ContentController extends Controller
 
         if(Hash::check($request['password'], $content->password)){
             $decrypted_data = decrypt($content->content);
-            return response()->json($decrypted_data, 201);
+            return response()->json($decrypted_data, 202);
         } else {
             return response()->json('Incorrect password', 403);
         }
